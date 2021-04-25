@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<head>
+    <title>FAQ Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/faq.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <div class="panel-group" id="accordion" style="margin-top:90px;">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#faq1">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        How to see parks in respective States?
+                    </a>
+                </h4>
+            </div>
+            <div id="faq1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a name="faq1"></a>
+                    1. Visit Parks Tab on the top and put in the state name for which you want to list the National parks available in that State.
+                    <br />
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#faq2">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        How Can I see the Activities and Events Available at the Park?
+                    </a>
+                </h4>
+            </div>
+            <div id="faq2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a name="faq2"></a>
+                    You can do this in 2 ways .<br />
+                    <br />
+                    1.One is you can search for park name directly in the Activity Tab<strong>(please provide complete park name inorder for the search to work)</strong><br />
+                    2.You can search for park in the state and click on the Get Details Button in each park block to get the list of Activities and Events in the Park .
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#faq3">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Can I Report the Missing park ?
+                    </a>
+                </h4>
+            </div>
+
+            <div id="faq3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a name="faq3"></a>
+                    Yes, ofcourse you can once you search for parks in the state if you find that park is missing you can just click the Report Missing park button on the bottom right for each park.<br />
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#faq4">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Can I Report Missing Activity or Event in the Park?
+                    </a>
+                </h4>
+            </div>
+
+            <div id="faq4" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a name="faq4"></a>
+                    Yes, Once you land on Activities and Events of a park on the top left you can see the Report Error button there you can put in the Missing Activity or Event Name and when you submit you will see the change gets reflected in the Database.<br />
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#faq5">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Can I Add Information about New Park?
+                    </a>
+                </h4>
+            </div>
+
+            <div id="faq5" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a name="faq5"></a>
+                    Yes, Once you land on Parks Tab you can see <strong>Add park</strong> button there you can provide the information about the park and hit submit and you will see the changes get reflected in the database, you can verify by searching for the parks in the state you added and you will find the information you submitted.<br/>
+                    <strong>Note:Details of Activites and Events will be added by the respective team by contacting the park authorities.</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#faq6">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Why is it i am seeing no parks in some states?
+                    </a>
+                </h4>
+            </div>
+
+            <div id="faq6" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a name="faq6"></a>
+                    The information you see is taken from this Api <a>https://developer.nps.gov/api/v1/parks?state</a> provided by the government<br />
+                    It is possible that there are no National parks in that state or data has not been updated by the respective Authorities in the Api database.
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#faq7">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Statistics graph that i see is Dynamic or static?
+                    </a>
+                </h4>
+            </div>
+
+            <div id="faq7" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a name="faq7"></a>
+                    The graph you see is dynamic and the count of parks will be calculated by the query in each state and data is returned, you can verify this by reporting some park in the state as Missing and you can see the count gets updated in the Graph.
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>

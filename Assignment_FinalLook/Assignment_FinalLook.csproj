@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="img\" />
-    <Folder Include="css\" />
   </ItemGroup>
 
   <ItemGroup>

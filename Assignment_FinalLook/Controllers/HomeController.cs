@@ -391,5 +391,12 @@ namespace Assignment_FinalLook.Controllers
             dbContext.SaveChanges();
             return View("DetailsUpdated");
         }
+
+        [Route("FAQ")]
+        public IActionResult FAQ()
+        {
+
+            return View();
+        }
     }
 }

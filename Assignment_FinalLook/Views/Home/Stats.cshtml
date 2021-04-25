@@ -15,7 +15,7 @@
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
     <h2 style="margin-top:60px;">Stats of parks counts in each state in the country</h2>
-    <canvas id="barchartexample" width="550" height="550"></canvas>
+    <canvas id="barchartexample" width="150" height="150"></canvas>
     <script>
     new Chart(document.getElementById("barchartexample"), {
         type: 'bar',
@@ -23,22 +23,27 @@
             text: "Title in Big Fonts",
             fontSize: 50,
         },
+
         data: {
             labels: [@Html.Raw(ViewBag.States)],
           datasets: [
           {
-                  label: "Count of Natioanl parks",
-                          backgroundColor: [@Html.Raw(ViewBag.colors)],
+              label: "Count of Natioanl parks",
+            backgroundColor: [@Html.Raw(ViewBag.colors)],
             data: [@ViewBag.parkcounts]
           }
         ]
       },
+
         options: {
+            aspectRatio: 6 ,
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 yAxes: [{
                     ticks: {
                         reverse: false,
-                        stepSize: 10
+                        stepSize: 5
                     },
                 }]
             },
