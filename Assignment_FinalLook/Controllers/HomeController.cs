@@ -1,4 +1,4 @@
-﻿using Assignment_FinalLook.Models;
+using Assignment_FinalLook.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -350,6 +350,5 @@ namespace Assignment_FinalLook.Controllers
             dbContext.SaveChanges();
             return View("DetailsUpdated");
         }
-
     }
 }
