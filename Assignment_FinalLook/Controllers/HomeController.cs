@@ -6,13 +6,20 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Assignment_FinalLook.DataAccess;
 using System.Linq;
+using System.Net.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Assignment_FinalLook.Controllers
 {
     public class HomeController : Controller
     {
+        HttpClient httpClient;
+        static string API_KEY = "4d2QXxfxKWafhyHR06q3vbCmKRJcTNtVF6GNWIRw"; //Add your API key here inside ""
+
+        static string BASE_URL = "hhttps://developer.nps.gov/api/v1/parks?state";
+
         public ApplicationDbContext dbContext;
 
         public HomeController(ApplicationDbContext context)
@@ -22,12 +29,46 @@ namespace Assignment_FinalLook.Controllers
 
         private readonly ILogger<HomeController> _logger;
 
-      /*  public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-      */
 
+        public IActionResult insertData()
+        {
+            httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Add("X-Api-Key", API_KEY);
+            httpClient.DefaultRequestHeaders.Accept.Add(
+            new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            //string NATIONAL_PARK_API_PATH = BASE_URL + "/parks?limit=20";
+            httpClient.BaseAddress = new Uri(BASE_URL);
+
+            string parksData = "";
+            Park parks = null;
+            try
+            {
+                HttpResponseMessage response = httpClient.GetAsync(BASE_URL)
+                                                        .GetAwaiter().GetResult();
+                if (response.IsSuccessStatusCode)
+                {
+                    parksData = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                }
+
+                if (!parksData.Equals(""))
+                {
+                    // JsonConvert is part of the NewtonSoft.Json Nuget package
+                    parks = JsonConvert.DeserializeObject<Park>(parksData);
+                }
+
+                dbContext.Park.Add(parks);
+                dbContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                // This is a useful place to insert a breakpoint and observe the error message
+                Console.WriteLine(e.Message);
+            }
+
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
