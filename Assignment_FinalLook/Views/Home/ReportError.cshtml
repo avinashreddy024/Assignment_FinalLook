@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<head>
+    <title>Report Error</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/error.css">
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <form style="margin-top:90px;" asp-controller="Home" asp-action="GetUserDetails" method="get">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">First Name</label>
+                <input type="text" class="form-control" id="inputEmail4" name="firstname" value="" onchange="setval('inputEmail4')" placeholder="First Name" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Last name</label>
+                <input type="text" class="form-control" id="inputPassword4" name="lastname" value="" onchange="setval('inputPassword4')" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAddress">Email</label>
+            <input type="text" class="form-control" id="inputAddress" name="email" value="" onchange="setval('inputAddress')"  placeholder="Email" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAddress2">Phone</label>
+            <input type="number" class="form-control" id="inputAddress2" name="phone"  value="" onchange="setval('inputAddress2')" placeholder="">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAddress2">Park Name</label>
+            <input type="text" class="form-control" id="" name="parkname" value="@ViewBag.parkname" onchange="setval('parkname')" placeholder="park name" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAddress2">Activity Name</label>
+            <input type="text" class="form-control" id="Activity" name="activityname" value="" onchange="setval('Activity')" placeholder="Activity name" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="city" name="city" value="" onchange="setval('city')" required/>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <input id="inputState" name="" value="@ViewBag.state" class="form-control" >
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" namae="zip" id="inputZip">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                <label class="form-check-label" for="gridCheck">
+                    Agree to Terms and Conditions
+                </label>
+            </div>
+        </div>
+        <button type="submit"  class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- Footer -->
+
+    <script>
+        function setval(id) {
+            var data = document.getElementById(id).value;
+            document.getElementById(id).innerHTML = data;
+        }
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+    </script>
+
+</body>

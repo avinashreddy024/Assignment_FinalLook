@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/HomePage.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <h2 style="margin-top:60px;">Stats of parks counts in each state in the country</h2>
+    <canvas id="barchartexample" width="550" height="550"></canvas>
+    <script>
+    new Chart(document.getElementById("barchartexample"), {
+        type: 'bar',
+        title: {
+            text: "Title in Big Fonts",
+            fontSize: 50,
+        },
+        data: {
+            labels: [@Html.Raw(ViewBag.States)],
+          datasets: [
+          {
+                  label: "Count of Natioanl parks",
+                          backgroundColor: [@Html.Raw(ViewBag.colors)],
+            data: [@ViewBag.parkcounts]
+          }
+        ]
+      },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        reverse: false,
+                        stepSize: 10
+                    },
+                }]
+            },
+            plugins: {
+                legend: {
+                    fontSize: 30,
+                    labels: {
+                        // This more specific font property overrides the global property
+                        font: {
+                            size: 50
+                        }
+                    }
+                }
+            }
+        }
+    });
+    </script>
+
+</body>

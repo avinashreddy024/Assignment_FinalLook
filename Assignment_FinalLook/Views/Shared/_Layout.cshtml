@@ -1,16 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>Bootstrap Theme The Band</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/HomePage.css" />
-</head>
+ 
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<body id="myPage" data-spy="scroll" data-target=".nav bar" data-offset="50">
     @RenderBody()
 
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -21,14 +13,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#myPage">Parks</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Parks</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#myPage">HOME</a></li>
-                    <li><a href="Parks.html">PARKS</a></li>
-                    <li><a href="Activities.html">ACTIVITIES</a></li>
-                    <li><a href="#contact">ABOUT US</a></li>
+                    <li><a asp-controller="Home" asp-action="Index">HOME</a></li>
+                    <li><a asp-controller="Home" asp-action="Parks">PARKS</a></li>
+                    <li><a asp-controller=  "Home" asp-action="Activities">ACTIVITIES</a></li>
+                    <li><a asp-controller="Home" asp-action="Stats">STATS</a></li>
+                    <li><a asp-controller="Home" asp-action="Index" asp-fragment="contact">ABOUT US</a></li>
                 </ul>
             </div>
         </div>

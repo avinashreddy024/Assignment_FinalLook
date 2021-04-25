@@ -6,30 +6,26 @@ using System.Threading.Tasks;
 
 namespace Assignment_FinalLook.Models
 {
-    public class Parks
-    {
-
-
+    
         public class Park
         {
             [Key]
-            int Id { get; set; }
-            string fullName { get; set; }
+            public string parkId { get; set; }
+            public string parkName { get; set; }
 
-            string parkCode { get; set; }
-            string url { get; set; }
-            string stateCode { get; set; } //State code goes here
+            public string Address { get; set; }
+            public States State { get; set; } //State code goes here
+            public string PhoneNuber { get; set; }
 
-            string phonenumber { get; set; }
+            public int EntryFee { get; set; }
+            public string website { get; set; }
 
-            string address { get; set; }
-
-            List<Events> events { get; set; }
-
+            public List<Events> events { get; set; }
+            public List<Activities> activities { get; set; }
 
         }
 
-        public class StateCodeToState
+        public class States
         {
             [Key]
             public string stateCode { get; set; }
@@ -40,23 +36,42 @@ namespace Assignment_FinalLook.Models
         public class Events
         {
             [Key] 
-            public int Id { get; set; }
-            public Park park { get; set; }
+            public int EventId { get; set; }
+            public Park parkId { get; set; }
 
-            public string parkName { get; set; }
+            public string EventName { get; set; }
+            public int EntryFee { get; set; }
 
         }
 
-        public class Activity
+        
+        public class Activities
         {
             [Key]
-            int Id { get; set; }
+            public int ActivityId { get; set; }
 
-            string activityName { get; set; }
+            public string ActivityName { get; set; }
 
-            public Park park { get; set; }
+            public Park parkId { get; set; }
+            public int EntryFee { get; set; }
         }
 
 
-    }
+        public class Users
+         {   
+
+        [Key]
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
+        public string ParkName { get; set; }
+        public string ActivityName { get; set; }
+        public string state { get; set; }
+        public string city { get; set; }
+        }
+
+
+    
 }

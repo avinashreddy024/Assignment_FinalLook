@@ -131,8 +131,7 @@
     resize: none;
   }
 
-  .container1 {
-    max-height: 550px;
+.container1 {
     width: 1200px;
     margin: 20px;
     margin-left: auto;
@@ -147,8 +146,7 @@
     -webkit-border-radius: 10px;
     text-align: center;
     flex-direction: column;
-    overflow:hidden;
-
+    overflow: scroll;
 }
 .mainbody,
 .header,

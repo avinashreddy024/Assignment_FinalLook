@@ -214,3 +214,8 @@ overflow:hidden;
   padding-bottom: 20px;
   overflow:hidden;
 }
+
+#Details {
+    background-color:green;
+    margin-top: 19px;
+}

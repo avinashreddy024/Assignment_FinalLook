@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/HomePage.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js">
+        function setval(id) {
+            var data = document.getElementById(id).value;
+            document.getElementById(id).innerHTML = data;
+        }
+    </script>
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50" style="background-image:url('~/img/MountRanier.jpeg')">
+
+    <form style="margin-top:90px;" asp-controller="Home" asp-action="UpdateparkDetails" method="get">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Park Name</label>
+                <input type="text" class="form-control" name="parkname" value="@ViewBag.parkname" onchange="setval('parkname')" id="parkname" placeholder="ParkName" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Park Address 1</label>
+                <input type="text" class="form-control" name="address" value="@ViewBag.address" onchange="setval('parkname')" id="address" placeholder="Address.." required>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAddress">Entry Fee</label>
+            <input type="text" class="form-control" name="EntryFee" value="@ViewBag.EntryFee" onchange="setval('entryfee')" id="entryfee" placeholder="13" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAddress2">Contact Number</label>
+            <input type="number" class="form-control" name="phone" value="@ViewBag.phone" id="phone" onchange="setval('phone')" placeholder="" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputCity">City</label>
+                <input type="text" name="city" value="" onchange="setval("city")" class="form-control" id="city">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <input id="state" name="state" value="@ViewBag.state" onchange="setval('state')" class="form-control" disabled>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputCity">Web Url</label>
+                <input type="text" name="url" value="@ViewBag.url" id="url" onchange="setval('url')" class="form-control" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                <label class="form-check-label" for="gridCheck">
+                    Agree to Terms and Conditions.
+                </label>
+            </div>
+        </div>
+        <button type="submit" name="parkId" value="@ViewBag.parkId" class="btn btn-primary">Update Details</button>
+    </form>
+</body>
