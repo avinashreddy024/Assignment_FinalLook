@@ -24,7 +24,8 @@ namespace Assignment_FinalLook.Models
             public List<Activities> activities { get; set; }
 
         }
-
+        
+        //This is the table for the States and its code
         public class States
         {
             [Key]
@@ -32,7 +33,8 @@ namespace Assignment_FinalLook.Models
 
             public string stateName { get; set; }
         }
-
+        
+        //This is the table for the Events and its details
         public class Events
         {
             [Key] 
@@ -44,7 +46,7 @@ namespace Assignment_FinalLook.Models
 
         }
 
-        
+        //This is the table for the Activities and its details
         public class Activities
         {
             [Key]
@@ -56,7 +58,7 @@ namespace Assignment_FinalLook.Models
             public int EntryFee { get; set; }
         }
 
-
+        //This is the table for the Users and its details
         public class Users
          {   
 
