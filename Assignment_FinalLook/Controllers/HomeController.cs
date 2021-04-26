@@ -121,7 +121,7 @@ namespace Assignment_FinalLook.Controllers
                 }
                 catch(Exception e)
                 {
-
+                    Console.WriteLine(e.Message);
                 }
                 if (stated != null)
                 {
@@ -210,6 +210,7 @@ namespace Assignment_FinalLook.Controllers
         [Route("Stats")]
         public IActionResult Stats()
         {
+        //Added stats function in Home Controller for the visual representation of the data we have collected from the API
             string[] ChartColors = new string[] { "#FFA07A", "#E9967A", "#FA8072", "#F08080", "#FF7F50", "#FFA500", "#BDB76B", "#90EE90", "#8FBC8F", "#AFEEEE", "#B0E0E6", "#ADD8E6", "#A9A9A9", "#C0C0C0", "#FFE4C4", "#D2B48C", "#FFF8DC", "#708090", "#D8BFD8", "#6495ED", "#5F9EA0", "#40E0D0", "#BDB76B", "#D3D3D3", "#DDA0DD", "#DA70D6"};
             List<string> states = new List<string>();
             states.Add("Florida"); states.Add("Ohio"); states.Add("California"); states.Add("Michigan");
@@ -218,6 +219,7 @@ namespace Assignment_FinalLook.Controllers
             states.Add("Oregon"); states.Add("Maryland"); states.Add("New Jersey");
             states.Add("Texas"); states.Add("Oklahoma"); states.Add("Indiana"); states.Add("Colorado");
             List<int> counts = new List<int>();
+            try{
             for(int i=0;i<states.Count;i++)
             {
                 var x = states[i];
@@ -229,6 +231,11 @@ namespace Assignment_FinalLook.Controllers
                     var parks = dbContext.Park.Where(c => c.State.stateCode == state.stateCode).ToList();
                     counts.Add(parks.Count);
                 }
+            }
+            }
+            catch(Exception e){
+            Console.WriteLine(e.Message);
+            
             }
             ViewBag.parkcounts = String.Join(",", counts.Select(d =>d));
             ViewBag.States = String.Join(",", states.Select(d => "'" + d + "'"));
