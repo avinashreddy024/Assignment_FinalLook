@@ -29,7 +29,7 @@ namespace Assignment_FinalLook
         {
             // Setup EF connection
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:StateParks:ConnectionString"]));
-
+            //New Connection string Proerty Added for Azure Connection
             // added from MVC template
             services.AddMvc(); 
             services.AddControllersWithViews();
