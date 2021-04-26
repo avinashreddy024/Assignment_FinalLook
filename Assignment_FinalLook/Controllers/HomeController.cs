@@ -276,6 +276,7 @@ namespace Assignment_FinalLook.Controllers
                 dbContext.Activities.Add(av);
             }
             dbContext.SaveChanges();
+            Above Code is for Testing the Delete Operation.
             */
             return View("UpdateDataBaseEvent");
         }
