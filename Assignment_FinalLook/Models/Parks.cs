@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment_FinalLook.Models
 {
-    
+        //The Following are the Database tabels that will be created.
         public class Park
         {
             [Key]
