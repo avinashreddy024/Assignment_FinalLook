@@ -38,7 +38,6 @@ namespace Assignment_FinalLook.Controllers
             httpClient.DefaultRequestHeaders.Accept.Add(
             new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            //string NATIONAL_PARK_API_PATH = BASE_URL + "/parks?limit=20";
             httpClient.BaseAddress = new Uri(BASE_URL);
 
             string parksData = "";
@@ -54,7 +53,8 @@ namespace Assignment_FinalLook.Controllers
 
                 if (!parksData.Equals(""))
                 {
-                    // JsonConvert is part of the NewtonSoft.Json Nuget package
+                    // JsonConvert is part of the NewtonSoft.Json Nuget package 
+                    //Dumping the parks data to the Database.
                     parks = JsonConvert.DeserializeObject<Park>(parksData);
                 }
 
@@ -63,7 +63,7 @@ namespace Assignment_FinalLook.Controllers
             }
             catch (Exception e)
             {
-                // This is a useful place to insert a breakpoint and observe the error message
+                // This is a useful place to insert a breakpoint and observe the error message.
                 Console.WriteLine(e.Message);
             }
 
@@ -275,7 +275,7 @@ namespace Assignment_FinalLook.Controllers
                 av.parkId = p;
                 dbContext.Activities.Add(av);
             }
-            dbContext.SaveChanges();
+            dbContext.SaveChanges()
             Above Code is for Testing the Delete Operation.
             */
             return View("UpdateDataBaseEvent");
